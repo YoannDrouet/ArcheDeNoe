@@ -84,7 +84,7 @@ public class main {
                     //Si oui on sort
                     break;
                 }
-                //Exception si l'utilisateur entre autre chose qu'un des entiers à disposition
+                //Exception si l'utilisateur entre autre chose qu'un des entiers à disposition.
                 catch (InputMismatchException e) {
                     System.err.println("Entrez un des nombres proposés");
                 }
