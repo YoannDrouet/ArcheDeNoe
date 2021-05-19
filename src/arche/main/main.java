@@ -61,6 +61,7 @@ public class main {
                 } finally {
                     scan.nextLine();
                 }
+            //Boucle tant que l'utilisateur n'a pas saisie une des valeurs demandées
             }while (true);
 
             //On demande à l'utilisateur de l'espèce de l'animal
@@ -94,6 +95,7 @@ public class main {
                 } finally {
                     scan.nextLine();
                 }
+            //Boucle tant que l'utilisateur n'a pas saisie une des valeurs demandées
             } while (true);
 
             //Initialise l'animal en fonction des choix de l'utilisateur
@@ -148,6 +150,7 @@ public class main {
                 finally {
                     scan.nextLine();
                 }
+            //Boucle tant que l'utilisateur n'a pas saisie une des valeurs demandées
             }while (true);
         //Relance la boucle si l'utilisateur entre le nombre 1
         }while (reponse_utilisateur_continuer == 1);
