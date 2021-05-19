@@ -2,7 +2,7 @@ package arche.interfaces;
 
 import arche.enumeration.RegimeAlimentaire;
 
-/**Interface Herbivore qui implémente certaines classes animale
+/** Interface à implémenter sur les animaux Herbivores
  *
  * <ul>
  *     <li><b>nombreVegetauxJournalier :</b> Le nombre de végétaux journalier consommés par chaque herbivore</li>
@@ -10,6 +10,7 @@ import arche.enumeration.RegimeAlimentaire;
  * </ul>
  *
  * @author Yoann Drouet & Clément Duquenoy
+ * @version 1.0
  */
 public interface Herbivore {
 

@@ -2,7 +2,7 @@ package arche.interfaces;
 
 import arche.enumeration.RegimeAlimentaire;
 
-/**Interface Carnivore qui implémente certaines classes animale
+/** Interface à implémenter sur les animaux Carnivores
  *
  * <ul>
  *     <li><b>quantiteViandeJournaliere :</b> Le nombre de kilos de viandes journalier consommés par chaque carnivore</li>
@@ -10,6 +10,7 @@ import arche.enumeration.RegimeAlimentaire;
  * </ul>
  *
  * @author Yoann Drouet & Clément Duquenoy
+ * @version 1.0
  */
 public interface Carnivore {
 

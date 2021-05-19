@@ -1,6 +1,6 @@
 package arche.exception;
 
-/**Exception levé lorsque l'utilisateur essaye d'entré un animal alors que qu'il n'y a plus de place dans l'Arche
+/** Exception a lever lorsque l'utilisateur essaye d'ajouter un animal alors qu'il n'y a plus de place dans l'Arche
  *
  * @author Yoann Drouet & Clément Duquenoy
  */

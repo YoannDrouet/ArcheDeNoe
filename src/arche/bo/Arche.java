@@ -103,7 +103,7 @@ public class Arche {
         }
     }
 
-    /**Utilise la méthode affichage des informations de chaque animal de l'Arche
+    /** Méthode d'affichage des informations de chaque animal de l'Arche
      */
     public void afficher(){
         for (int i = 0; i < capaciteArche.length; i++) {
@@ -116,8 +116,8 @@ public class Arche {
         }
     }
 
-    /** Méthode qui calcule et affiche la quantité de nourriture à prévoir pour le voyage ,
-     *  en fonction des animaux présents dans l'Arche et du nombre de jour de voyage (placé en paramètre)
+    /** Méthode qui calcule et affiche la quantité de nourriture à prévoir pour le voyage,
+     *  en fonction des animaux présents dans l'Arche et du nombre de jour de voyage.
      *
      * @param jourDeVoyage int
      */
