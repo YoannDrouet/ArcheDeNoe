@@ -116,22 +116,7 @@ public class main {
                     break;
             }
 
-            //Ajoute l'animal de l'utilisateur à l'Arche
-            try {
-                archeDeNoe.ajouterAnimal(animal_utilisateur);
-            }
-            //Exception lorsqu'il n'y a plus de place dans l'Arche
-            catch (PlusDePlaceException e) {
-                System.err.println(e.getMessage());
-            }
-            //Exception s'il y a déjà deux individus de la même espèce
-            catch (MemeEspeceException e) {
-                System.err.println(e.getMessage());
-            }
-            //Exception s'il y a déjà deux individus du même sexe et de la même espèce
-            catch (MemeSexeException e) {
-                System.err.println(e.getMessage());
-            }
+
 
             //Demande à l'utilisateur s'il veut entrer un nouvel animal
             System.out.println("Souhaitez-vous ajouter un autre animal ? 0-NON / 1-OUI");
