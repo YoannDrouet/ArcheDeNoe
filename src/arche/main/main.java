@@ -94,7 +94,7 @@ public class main {
                 } finally {
                     scan.nextLine();
                 }
-            }while (true);
+            } while (true);
 
             //Initialise l'animal en fonction des choix de l'utilisateur
             switch (reponse_utilisateur_espece_animal) {
@@ -155,7 +155,7 @@ public class main {
         //Afficher les animaux à bord de l'Arche
         archeDeNoe.afficher();
 
-        //Calcul et affiche les provosion à prévoir pour le temps de voyage souhaité
+        //Calcul et affiche les provision à prévoir pour le temps de voyage souhaité
         archeDeNoe.stockAPrevoir(10);
     }
 }
