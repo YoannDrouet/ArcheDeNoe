@@ -134,7 +134,7 @@ public class main {
             }
 
             //Demande à l'utilisateur s'il veut entrer un nouvel animal
-            System.out.println("Souhaitez-vous ajouter un autre animal ? 0-NON  / 1-OUI");
+            System.out.println("Souhaitez-vous ajouter un autre animal ? 0-NON / 1-OUI");
             do {
                 //Vérifie que l'utilisateur à bien entré un entier
                 try {
