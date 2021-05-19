@@ -17,164 +17,145 @@ public class main {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         Verifs verif = new Verifs();
-        // Crée une nouvelle arche
+        // Création d'une nouvelle arche
         Arche archeDeNoe = new Arche(8);
 
-        // Création et ajout des animaux
-
-        /*// Chats
-        Animal chat01 = new Chat("Chat 01", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(chat01);
-
-        Animal chat02 = new Chat("Chat 02", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(chat02);
-
-        Animal chat03 = new Chat("Chat 03", Sexe.FEMELLE);
-        archeDeNoe.ajouterAnimal(chat03);
-
-        Animal chat04 = new Chat("Chat 04", Sexe.FEMELLE);
-        archeDeNoe.ajouterAnimal(chat04);
-
-        // Chiens
-        Animal chien01 = new Chien("Chien 01", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(chien01);
-
-        Animal chien02 = new Chien("Chien 02", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(chien02);
-
-        Animal chien03 = new Chien("Chien 03", Sexe.FEMELLE);
-        archeDeNoe.ajouterAnimal(chien03);
-
-        Animal chien04 = new Chien("Chien 04", Sexe.FEMELLE);
-        archeDeNoe.ajouterAnimal(chien04);
-
-        // Gorilles
-        Animal Gorille01 = new Gorille("Gorille 01", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(Gorille01);
-
-        Animal Gorille02 = new Gorille("Gorille 02", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(Gorille02);
-
-        Animal Gorille03 = new Gorille("Gorille 03", Sexe.FEMELLE);
-        archeDeNoe.ajouterAnimal(Gorille03);
-
-        Animal Gorille04 = new Gorille("Gorille 04", Sexe.FEMELLE);
-        archeDeNoe.ajouterAnimal(Gorille04);
-
-        // Lapins
-        Animal Lapin01 = new Lapin("Lapin 01", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(Lapin01);
-
-        Animal Lapin02 = new Lapin("Lapin 02", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(Lapin02);
-
-        Animal Lapin03 = new Lapin("Lapin 03", Sexe.FEMELLE);
-        archeDeNoe.ajouterAnimal(Lapin03);
-
-        Animal Lapin04 = new Lapin("Lapin 04", Sexe.FEMELLE);
-        archeDeNoe.ajouterAnimal(Lapin04);
-
-        Animal yoann = new Gorille("Yoann", Sexe.MALE);
-        archeDeNoe.ajouterAnimal(yoann);*/
-
-        int reponse_utilisateur_continuer = 1;
-
+        int reponse_utilisateur_continuer;
 
         //Boucle tant que l'utilisateur souhaite rentrer plus d'animaux
-        while (reponse_utilisateur_continuer == 1) {
-
+        do {
+            //Déclaration de l'animal à rentrer dans l'arche
             Animal animal_utilisateur = null;
 
+            //Choix du nom de l'animal par l'utilisateur
             System.out.println("Quel est le nom de l'animal ?");
             String reponse_utilisateur_nom_animal = scan.nextLine();
 
-            int reponse_utilisateur_sexe_animal;
+            //On demande à l'utilisateur de le sexe de l'animal
             System.out.printf("Quel est le sexe de l'animal ? ");
+            //Mise en forme de l'énumération Sexe sous forme de tableau
             Sexe[] tabSexe = Sexe.values();
+            int reponse_utilisateur_sexe_animal;
+
+            //Affichage des choix de l'utilisateur
             for (int i = 0; i < Sexe.values().length; i++) {
                 System.out.printf("%d-%s ",i, tabSexe[i]);
             }
             System.out.println();
-            while (true) {
+
+            //Boucle tant que l'utilisateur n'a pas entré une des réponses à disposition
+            do {
                 try {
                     reponse_utilisateur_sexe_animal = scan.nextInt();
+                    //On vérifie que l'utilisateur a bien entré une réponse qui était à sa disposition
                     verif.intBorne(reponse_utilisateur_sexe_animal, Sexe.values().length - 1);
                     break;
-                } catch (InputMismatchException e) {
+                }
+                //Exception si l'utilisateur entre autre chose qu'un des entiers à disposition
+                catch (InputMismatchException e) {
                     System.err.println("Entrez un des nombres proposés");
-                } catch (HorsBornesException e) {
+                }
+                //Exception si l'utilisateur entre un entier non compris dans ceux à sa disposition
+                catch (HorsBornesException e) {
                     System.err.println(e.getMessage());
                 } finally {
                     scan.nextLine();
                 }
-            }
+            }while (true);
 
-            int reponse_utilisateur_espece_animal;
+            //On demande à l'utilisateur de l'espèce de l'animal
             System.out.println("Quel est l'espèce de l'animal ?");
+            int reponse_utilisateur_espece_animal;
+            //Mise en forme de l'énumération Espece sous forme de tableau
             Espece[] tabEspece = Espece.values();
+
+            //Affichage des choix de l'utilisateur
             for (int i = 0; i < Espece.values().length; i++) {
                 System.out.printf("%d-%s ", i, tabEspece[i]);
             }
             System.out.println();
-            while (true) {
+
+            //Boucle tant que l'utilisateur n'a pas entré une des réponses à disposition
+            do {
                 try {
                     reponse_utilisateur_espece_animal = scan.nextInt();
+                    //On vérifie que l'utilisateur a bien entré une réponse qui était à sa disposition
                     verif.intBorne(reponse_utilisateur_espece_animal, Espece.values().length - 1);
+                    //Si oui on sort
                     break;
-                } catch (InputMismatchException e) {
+                }
+                //Exception si l'utilisateur entre autre chose qu'un des entiers à disposition
+                catch (InputMismatchException e) {
                     System.err.println("Entrez un des nombres proposés");
-                } catch (HorsBornesException e) {
+                }
+                //Exception si l'utilisateur entre un entier non compris dans ceux à sa disposition
+                catch (HorsBornesException e) {
                     System.err.println(e.getMessage());
                 } finally {
                     scan.nextLine();
                 }
-            }
+            }while (true);
 
+            //Initialise l'animal en fonction des choix de l'utilisateur
             switch (reponse_utilisateur_espece_animal) {
+                //Création d'un Chat
                 case 0:
                     animal_utilisateur = new Chat(reponse_utilisateur_nom_animal, tabSexe[reponse_utilisateur_sexe_animal]);
                     break;
+                //Création d'un Chien
                 case 1:
                     animal_utilisateur = new Chien(reponse_utilisateur_nom_animal, tabSexe[reponse_utilisateur_sexe_animal]);
                     break;
+                //Création d'un Gorille
                 case 2:
                     animal_utilisateur = new Gorille(reponse_utilisateur_nom_animal, tabSexe[reponse_utilisateur_sexe_animal]);
                     break;
+                //Création d'un Lapin
                 case 3:
                     animal_utilisateur = new Lapin(reponse_utilisateur_nom_animal, tabSexe[reponse_utilisateur_sexe_animal]);
                     break;
             }
 
+            //Ajoute l'animal de l'utilisateur à l'Arche
             try {
                 archeDeNoe.ajouterAnimal(animal_utilisateur);
-            } catch (PlusDePlaceException e) {
+            }
+            //Exception lorsqu'il n'y a plus de place dans l'Arche
+            catch (PlusDePlaceException e) {
                 System.err.println(e.getMessage());
-            } catch (MemeEspeceException e) {
+            }
+            //Exception s'il y a déjà deux individus de la même espèce
+            catch (MemeEspeceException e) {
                 System.err.println(e.getMessage());
-            } catch (MemeSexeException e) {
+            }
+            //Exception s'il y a déjà deux individus du même sexe et de la même espèce
+            catch (MemeSexeException e) {
                 System.err.println(e.getMessage());
             }
 
+            //Demande à l'utilisateur s'il veut entrer un nouvel animal
             System.out.println("Souhaitez-vous ajouter un autre animal ? 1-OUI / autre-NON");
-            while (true) {
+            do {
+                //Vérifie que l'utilisateur à bien entré un entier
                 try {
                     reponse_utilisateur_continuer = scan.nextInt();
                     break;
-                } catch (InputMismatchException e) {
+                }
+                //Exception s'il l'utilisateur entre autre chose qu'un entier
+                catch (InputMismatchException e) {
                     System.err.println("Entrez un des nombres proposés");
                 }
                 finally {
                     scan.nextLine();
                 }
+            }while (true);
+        //Relance la boucle si l'utilisateur entre le nombre 1
+        }while (reponse_utilisateur_continuer == 1);
 
-            }
-        }
-
-
-            //Insérer un animal
         //Afficher les animaux à bord de l'Arche
         archeDeNoe.afficher();
 
+        //Calcul et affiche les provosion à prévoir pour le temps de voyage souhaité
         archeDeNoe.stockAPrevoir(10);
     }
 }
