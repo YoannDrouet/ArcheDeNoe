@@ -155,7 +155,7 @@ public class main {
         //Afficher les animaux à bord de l'Arche
         archeDeNoe.afficher();
 
-        //Calcul et affiche les provision à prévoir pour le temps de voyage souhaité
+        //Calcul et affiche les provisions à prévoir pour le temps de voyage souhaité
         archeDeNoe.stockAPrevoir(10);
     }
 }
