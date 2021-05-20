@@ -107,7 +107,7 @@ public class SaisieUtitlisateur {
             // Boucle tant que l'utilisateur n'a pas saisi une réponse valide
         } while (true);
 
-        return reponse_utilisateur_espece_animal
+        return reponse_utilisateur_espece_animal;
     }
 
     public Animal AnimalUtilisateur(){
@@ -121,7 +121,7 @@ public class SaisieUtitlisateur {
 
         /// • Initialisation de l'animal en fonction des saisies de l'utilisateur • ///
 
-        switch (sexe) {
+        switch (espece) {
 
             // Création d'un Chat
             case 0:
@@ -144,14 +144,28 @@ public class SaisieUtitlisateur {
                 break;
         }
         return animal_utilisateur;
-
-
-
-
-
-
-
     }
 
-    public int saisie
+    public int rajouterUnAnimal(){
+
+        int reponse_utilisateur_continuer;
+
+        System.out.println("Souhaitez-vous ajouter un autre animal ? 0-NON / 1-OUI");
+        do {
+            try {
+                reponse_utilisateur_continuer = scan.nextInt();
+                break;
+            }
+            // Exception si l'utilisateur a saisi autre chose qu'un entier
+            catch (InputMismatchException e) {
+                System.err.println("Entrez un des nombres proposés");
+            }
+            finally {
+                scan.nextLine();
+            }
+            // Boucle tant que l'utilisateur n'a pas saisi une réponse valide
+        } while (true);
+
+        return  reponse_utilisateur_continuer;
+    }
 }

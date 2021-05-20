@@ -2,6 +2,7 @@ package arche.main;
 
 import arche.animaux.*;
 import arche.bo.Arche;
+import arche.bo.SaisieUtitlisateur;
 import arche.bo.Verifs;
 import arche.enumeration.Espece;
 import arche.enumeration.Sexe;
@@ -22,12 +23,9 @@ public class main {
 
     public static void main(String[] args){
 
-        // Déclaration des instances
-        Scanner scan = new Scanner(System.in);
-
-
         // Déclaration des variables
         int reponse_utilisateur_continuer;
+        SaisieUtitlisateur saisie = new SaisieUtitlisateur();
 
 
         ///// •  TRAITEMENT PRINCIPAL • /////
@@ -38,22 +36,11 @@ public class main {
 
 
         //// • Boucle d'ajout d'un animal par l'utilisateur • ////
-
         do {
             // Initialisation de l'animal à ajouter à l'Arche
-            Animal animal_utilisateur = null;
-
-
-
-
-
-
-
-
-
+            Animal animal_utilisateur = saisie.AnimalUtilisateur();
 
             /// • Ajout de l'animal crée à l'Arche • ///
-
             try {
                 archeDeNoe.ajouterAnimal(animal_utilisateur);
             }
@@ -62,7 +49,6 @@ public class main {
             catch (PlusDePlaceException e) {
                 System.err.println(e.getMessage());
             }
-
             // Exception s'il y a déjà deux individus de la même espèce dans l'Arche
             catch (MemeEspeceException e) {
                 System.err.println(e.getMessage());
@@ -72,27 +58,8 @@ public class main {
                 System.err.println(e.getMessage());
             }
 
-
-
             /// • Demande à l'utilisateur s'il veut ajouter un nouvel animal • ///
-
-            System.out.println("Souhaitez-vous ajouter un autre animal ? 0-NON / 1-OUI");
-            do {
-                try {
-                    reponse_utilisateur_continuer = scan.nextInt();
-                    break;
-                }
-
-                // Exception si l'utilisateur a saisi autre chose qu'un entier
-                catch (InputMismatchException e) {
-                    System.err.println("Entrez un des nombres proposés");
-                }
-                finally {
-                    scan.nextLine();
-                }
-
-            // Boucle tant que l'utilisateur n'a pas saisi une réponse valide
-            } while (true);
+            reponse_utilisateur_continuer = saisie.rajouterUnAnimal();
 
         // Boucle tant que l'utilisateur souhaite ajouter un autre animal
         } while (reponse_utilisateur_continuer == 1);
