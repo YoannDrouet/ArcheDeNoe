@@ -11,12 +11,15 @@ import java.util.Scanner;
 public class SaisieUtitlisateur {
     private static Scanner scan = new Scanner(System.in);
     private static Verifs verif = new Verifs();
+    private static Espece[] tabEspece = Espece.values();
+    private static Sexe[] tabSexe = Sexe.values();
 
     public String NomAnimal(){
         /// • Demande du nom de l'animal à l'utilisateur • ///
-
         System.out.println("Quel est le nom de l'animal ?");
-        String reponse_utilisateur_nom_animal = scan.nextLine();
+        String nomAnimal = scan.nextLine();
+
+        return nomAnimal;
     }
 
     public int SexeAnimal(){
@@ -25,7 +28,7 @@ public class SaisieUtitlisateur {
         int reponse_utilisateur_sexe_animal;
 
         // Mise en forme de l'énumération Sexe sous forme de tableau
-        Sexe[] tabSexe = Sexe.values();
+
 
         // Affichage de la question
         System.out.printf("Quel est le sexe de l'animal ? ");
@@ -70,7 +73,7 @@ public class SaisieUtitlisateur {
         int reponse_utilisateur_espece_animal;
 
         // Mise en forme de l'énumération Espece sous forme de tableau
-        Espece[] tabEspece = Espece.values();
+
 
         // Affichage de la question
         System.out.println("Quel est l'espèce de l'animal ?");
