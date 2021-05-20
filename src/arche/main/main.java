@@ -23,9 +23,11 @@ public class main {
 
     public static void main(String[] args){
 
+        // Déclaration des instances
+        SaisieUtitlisateur saisie = new SaisieUtitlisateur();
+
         // Déclaration des variables
         int reponse_utilisateur_continuer;
-        SaisieUtitlisateur saisie = new SaisieUtitlisateur();
 
 
         ///// •  TRAITEMENT PRINCIPAL • /////
@@ -36,11 +38,15 @@ public class main {
 
 
         //// • Boucle d'ajout d'un animal par l'utilisateur • ////
+
         do {
-            // Initialisation de l'animal à ajouter à l'Arche
+
+            /// • Initialisation de l'animal à ajouter à l'Arche • ///
+
             Animal animal_utilisateur = saisie.AnimalUtilisateur();
 
             /// • Ajout de l'animal crée à l'Arche • ///
+
             try {
                 archeDeNoe.ajouterAnimal(animal_utilisateur);
             }
@@ -49,16 +55,19 @@ public class main {
             catch (PlusDePlaceException e) {
                 System.err.println(e.getMessage());
             }
+
             // Exception s'il y a déjà deux individus de la même espèce dans l'Arche
             catch (MemeEspeceException e) {
                 System.err.println(e.getMessage());
             }
+
             // Exception s'il y a déjà un individu du même sexe et de la même espèce dans l'Arche
             catch (MemeSexeException e) {
                 System.err.println(e.getMessage());
             }
 
             /// • Demande à l'utilisateur s'il veut ajouter un nouvel animal • ///
+
             reponse_utilisateur_continuer = saisie.rajouterUnAnimal();
 
         // Boucle tant que l'utilisateur souhaite ajouter un autre animal
