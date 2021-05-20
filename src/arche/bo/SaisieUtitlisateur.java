@@ -111,37 +111,39 @@ public class SaisieUtitlisateur {
     }
 
     public Animal AnimalUtilisateur(){
+
+        Animal animal_utilisateur = null;
+
         String nom = this.NomAnimal();
 
-
-            int sexe = this.SexeAnimal();
-            int espece = this.EspeceAnimal();
+        int sexe = this.SexeAnimal();
+        int espece = this.EspeceAnimal();
 
         /// • Initialisation de l'animal en fonction des saisies de l'utilisateur • ///
 
-        switch (reponse_utilisateur_espece_animal) {
+        switch (sexe) {
 
             // Création d'un Chat
             case 0:
-                animal_utilisateur = new Chat(reponse_utilisateur_nom_animal, tabSexe[reponse_utilisateur_sexe_animal]);
+                animal_utilisateur = new Chat(nom, tabSexe[sexe]);
                 break;
 
             // Création d'un Chien
             case 1:
-                animal_utilisateur = new Chien(reponse_utilisateur_nom_animal, tabSexe[reponse_utilisateur_sexe_animal]);
+                animal_utilisateur = new Chien(nom, tabSexe[sexe]);
                 break;
 
             // Création d'un Gorille
             case 2:
-                animal_utilisateur = new Gorille(reponse_utilisateur_nom_animal, tabSexe[reponse_utilisateur_sexe_animal]);
+                animal_utilisateur = new Gorille(nom, tabSexe[sexe]);
                 break;
 
             // Création d'un Lapin
             case 3:
-                animal_utilisateur = new Lapin(reponse_utilisateur_nom_animal, tabSexe[reponse_utilisateur_sexe_animal]);
+                animal_utilisateur = new Lapin(nom, tabSexe[sexe]);
                 break;
         }
-        return animal
+        return animal_utilisateur;
 
 
 
