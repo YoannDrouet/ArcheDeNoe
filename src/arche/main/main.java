@@ -3,16 +3,9 @@ package arche.main;
 import arche.animaux.*;
 import arche.bo.Arche;
 import arche.bo.SaisieUtitlisateur;
-import arche.bo.Verifs;
-import arche.enumeration.Espece;
-import arche.enumeration.Sexe;
-import arche.exception.HorsBornesException;
 import arche.exception.MemeEspeceException;
 import arche.exception.MemeSexeException;
 import arche.exception.PlusDePlaceException;
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 /** Programme qui simule un "registre" pour l'Arche de Noé
  *
@@ -68,7 +61,7 @@ public class main {
 
             /// • Demande à l'utilisateur s'il veut ajouter un nouvel animal • ///
 
-            reponse_utilisateur_continuer = saisie.rajouterUnAnimal();
+            reponse_utilisateur_continuer = saisie.ajouterUnAutreAnimal();
 
         // Boucle tant que l'utilisateur souhaite ajouter un autre animal
         } while (reponse_utilisateur_continuer == 1);

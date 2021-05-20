@@ -8,21 +8,42 @@ import arche.exception.HorsBornesException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/** Classe qui représente une saisie utilisateur et un traitement associé
+ *
+ * @author Yoann Drouet & Clément Duquenoy
+ * @version 1.0
+ */
 public class SaisieUtitlisateur {
+
+    // Déclaration des instances
     private static Scanner scan = new Scanner(System.in);
     private static Verifs verif = new Verifs();
+
+    // Déclaration des variables
     private static Espece[] tabEspece = Espece.values();
     private static Sexe[] tabSexe = Sexe.values();
 
+    /** Méthode qui demande à l'utilisateur de saisir le nom de l'animal à ajouter
+     *
+     * @return String
+     */
     public String NomAnimal(){
+
         /// • Demande du nom de l'animal à l'utilisateur • ///
+
         System.out.println("Quel est le nom de l'animal ?");
         String nomAnimal = scan.nextLine();
 
         return nomAnimal;
     }
 
+    /** Méthode qui demande à l'utilisateur de saisir le sexe de l'animal à ajouter
+     *  et qui boucle tant que celui-ci n'a pas saisi une réponse valide
+     *
+     * @return int
+     */
     public int SexeAnimal(){
+
         /// • Demande du sexe de l'animal à l'utilisateur • ///
 
         int reponse_utilisateur_sexe_animal;
@@ -66,7 +87,13 @@ public class SaisieUtitlisateur {
         return reponse_utilisateur_sexe_animal;
     }
 
+    /** Méthode qui demande à l'utilisateur de saisir l'espèce de l'animal à ajouter
+     *  et qui boucle tant que celui-ci n'a pas saisi une réponse valide
+     *
+     * @return int
+     */
     public int EspeceAnimal(){
+
         /// • Demande de l'espèce de l'animal à l'utilisateur • ///
 
         int reponse_utilisateur_espece_animal;
@@ -110,16 +137,26 @@ public class SaisieUtitlisateur {
         return reponse_utilisateur_espece_animal;
     }
 
+    /** Méthode d'ajout d'un nouvel animal saisi par l'utilisateur
+     *  (demande du nom, du sexe et de l'espèce de l'animal à ajouter)
+     *
+     * @return Animal
+     */
     public Animal AnimalUtilisateur(){
 
+        // Initialisation de l'animal à return
         Animal animal_utilisateur = null;
 
+        // Appel de la méthode pour renseigner le nom
         String nom = this.NomAnimal();
 
+        // Appel de la méthode pour renseigner le sexe
         int sexe = this.SexeAnimal();
+
+        // Appel de la méthode pour renseigner l'espèce'
         int espece = this.EspeceAnimal();
 
-        /// • Initialisation de l'animal en fonction des saisies de l'utilisateur • ///
+        /// • Création de l'animal en fonction des saisies de l'utilisateur • ///
 
         switch (espece) {
 
@@ -146,7 +183,12 @@ public class SaisieUtitlisateur {
         return animal_utilisateur;
     }
 
-    public int rajouterUnAnimal(){
+    /** Méthode qui demande à l'utilisateur si il veut ajouter un autre animal à l'Arche,
+     *  ou si il souhaite s'arrêter là.
+     *
+     * @return int
+     */
+    public int ajouterUnAutreAnimal(){
 
         int reponse_utilisateur_continuer;
 
