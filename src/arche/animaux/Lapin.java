@@ -16,8 +16,6 @@ import arche.interfaces.Herbivore;
  */
 public class Lapin extends Animal implements Herbivore {
 
-    // Attributs d'instance
-    private Espece espece = Espece.LAPIN;
 
     // Méthodes
 
@@ -27,7 +25,7 @@ public class Lapin extends Animal implements Herbivore {
      * @param sexe Sexe
      */
     public Lapin(String nom, Sexe sexe) {
-        super(nom, sexe);
+        super(nom, sexe, Espece.LAPIN);
     }
 
     /** Méthode d'affichage des informations de l'instance

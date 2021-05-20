@@ -18,6 +18,9 @@ import arche.interfaces.Herbivore;
  */
 public class Arche {
 
+    // Déclaration des instances
+    SaisieUtitlisateur saisie = new SaisieUtitlisateur();
+
     // Attributs de classe
     Animal[] capaciteArche;
 
@@ -35,13 +38,15 @@ public class Arche {
      *
      * @return boolean
      */
-    public boolean resteDeLaPlace(Animal animal) throws PlusDePlaceException{
-        // Si la dernière case du tableau d'animaux n'est pas remplie
-        if (capaciteArche[capaciteArche.length-1] == null){
-            return true;
-        }else {
-            throw new PlusDePlaceException();
+    public boolean resteDeLaPlace() throws PlusDePlaceException{
+
+        // Si une des cases du tableau d'animaux est vide
+        for (int i = 0; i < capaciteArche.length; i++) {
+            if (capaciteArche[i] == null) {
+                return true;
+            }
         }
+        throw new PlusDePlaceException();
     }
 
     /** Méthode qui vérifie si un animal de même espèce et de même sexe se trouve déjà à bord,<br>
@@ -86,32 +91,66 @@ public class Arche {
 
     /** Ajoute l'animal en paramètre dans l'arche (avec vérification qu'il puisse vraiment être ajouté).
      *
-     * @param animal Animal
      * @throws PlusDePlaceException si il n'y a plus de place dans l'arche.
      * @throws MemeEspeceException si le nombre maximum d'individus de la même espèce (2) se trouve déjà à bord.
      * @throws MemeSexeException si un animal de même espèce et de même sexe se trouve déjà à bord.
      */
-    public void ajouterAnimal(Animal animal) throws PlusDePlaceException, MemeEspeceException, MemeSexeException{
-        if (resteDeLaPlace(animal) && !dejaMemeAnimal(animal)){
+    public void ajouterAnimal() throws PlusDePlaceException, MemeEspeceException, MemeSexeException{
+
+        System.out.println();
+        System.out.println("Entrez les informations de l'animal à faire monter dans l'Arche");
+        System.out.println();
+
+        Animal animal_a_ajouter = saisie.animalUtilisateur();
+
+        if (resteDeLaPlace() && !dejaMemeAnimal(animal_a_ajouter)){
             for (int i = 0; i < capaciteArche.length; i++) {
                 if (capaciteArche[i] == null){
-                    capaciteArche[i] = animal;
-                    System.out.printf("• %s a été ajouté à l'Arche%n%n", animal.getNom());
+                    capaciteArche[i] = animal_a_ajouter;
+                    System.out.printf("• %s a été ajouté à l'Arche%n%n", animal_a_ajouter.getNom());
                     break;
                 }
             }
         }
     }
 
+    /** Méthode qui enlève l'animal saisi par l'utilisateur de l'Arche.
+     */
+    public void enleverAnimal(){
+
+        System.out.println();
+        System.out.println("Entrez les informations de l'animal à faire descendre de l'Arche");
+        System.out.println();
+
+        Animal animal_a_enlever = saisie.animalUtilisateur();
+
+        boolean animalEnleve = false;
+
+        for (int i = 0; i < capaciteArche.length; i++) {
+            if (capaciteArche[i] != null){
+                if (capaciteArche[i].animauxPareils(animal_a_enlever)) {
+                    capaciteArche[i] = null;
+                    animalEnleve = true;
+                    System.out.printf("%s est bien descendu de l'Arche.%n", animal_a_enlever.getNom());
+                    break;
+                }
+            }
+        }
+        if (!animalEnleve) {
+            System.out.println("Cet animal n'est pas dans l'Arche");
+        }
+    }
+
     /** Méthode d'affichage des informations de chaque animal de l'Arche
      */
     public void afficher(){
+        System.out.println();
+        System.out.println("*** Animaux présents dans l'arche : ***");
+        System.out.println();
         for (int i = 0; i < capaciteArche.length; i++) {
             if (capaciteArche[i] != null){
                 capaciteArche[i].afficher();
                 System.out.println();
-            }else {
-                break;
             }
         }
     }
@@ -142,10 +181,6 @@ public class Arche {
                     kgViandeJournalier += Carnivore.quantiteViandeJournaliere;
                 }
             }
-            // Si cette case est vide c'est qu'il n'y a plus d'animaux, donc on sort
-            else {
-                break;
-            }
         }
 
         // On multiplie les besoins journaliers par le nombre de jours de voyage
@@ -153,6 +188,6 @@ public class Arche {
         nbVegetauxJournalier *= jourDeVoyage;
 
         // Affichage des besoins de l'Arche pour le voyage
-        System.out.printf("Il faut prévoir %dkg de viande et %d végétaux", kgViandeJournalier*jourDeVoyage, nbVegetauxJournalier*jourDeVoyage);
+        System.out.printf("Il faut prévoir %dkg de viande et %d végétaux%n", kgViandeJournalier*jourDeVoyage, nbVegetauxJournalier*jourDeVoyage);
     }
 }

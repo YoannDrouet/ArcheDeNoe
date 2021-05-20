@@ -142,7 +142,7 @@ public class SaisieUtitlisateur {
      *
      * @return Animal
      */
-    public Animal AnimalUtilisateur(){
+    public Animal animalUtilisateur(){
 
         // Initialisation de l'animal à return
         Animal animal_utilisateur = null;
@@ -210,4 +210,6 @@ public class SaisieUtitlisateur {
 
         return  reponse_utilisateur_continuer;
     }
+
+
 }

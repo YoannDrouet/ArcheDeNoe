@@ -16,8 +16,6 @@ import arche.interfaces.Carnivore;
  */
 public class Chien extends Animal implements Carnivore {
 
-    // Attributs d'instance
-    private Espece espece = Espece.CHIEN;
 
     // Méthode
 
@@ -27,7 +25,7 @@ public class Chien extends Animal implements Carnivore {
      * @param sexe Sexe
      */
     public Chien(String nom, Sexe sexe) {
-        super(nom, sexe);
+        super(nom, sexe, Espece.CHIEN);
     }
 
     /** Méthode d'affichage des informations de l'instance

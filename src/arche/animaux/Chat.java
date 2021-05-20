@@ -16,8 +16,6 @@ import arche.interfaces.Carnivore;
  */
 public class Chat extends Animal implements Carnivore {
 
-    // Attributs d'instance
-    private Espece espece = Espece.CHAT;
 
     // Méthodes
 
@@ -27,7 +25,7 @@ public class Chat extends Animal implements Carnivore {
      * @param sexe Sexe
      */
     public Chat(String nom, Sexe sexe) {
-        super(nom, sexe);
+        super(nom, sexe, Espece.CHAT);
     }
 
     /** Méthode d'affichage des informations de l'instance
@@ -38,12 +36,14 @@ public class Chat extends Animal implements Carnivore {
     }
 
     @Override
+    public RegimeAlimentaire getRegimeAlimentaire() {
+        return this.regimeAlimentaire;
+    }
+
+    @Override
     public Espece getEspece() {
         return espece;
     }
 
-    @Override
-    public RegimeAlimentaire getRegimeAlimentaire(){
-        return this.regimeAlimentaire;
-    }
+
 }

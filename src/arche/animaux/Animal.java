@@ -19,6 +19,7 @@ public abstract class Animal {
     // Attributs d'instance
     protected String nom;
     protected Sexe sexe;
+    protected Espece espece;
 
     // Méthodes
 
@@ -27,9 +28,10 @@ public abstract class Animal {
      * @param nom String
      * @param sexe Sexe
      */
-    public Animal(String nom, Sexe sexe) {
+    public Animal(String nom, Sexe sexe, Espece espece) {
         this.nom = nom;
         this.sexe = sexe;
+        this.espece = espece;
     }
 
     public Sexe getSexe() {
@@ -46,4 +48,14 @@ public abstract class Animal {
     public abstract void afficher();
 
     public abstract RegimeAlimentaire getRegimeAlimentaire();
+
+    public boolean animauxPareils(Animal animal) {
+
+        if (this.nom.equalsIgnoreCase(animal.nom) && this.sexe == animal.sexe && this.espece == animal.espece) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

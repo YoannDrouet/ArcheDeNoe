@@ -16,8 +16,6 @@ import arche.interfaces.Herbivore;
  */
 public class Gorille extends Animal implements Herbivore {
 
-    // Attributs d'instance
-    private Espece espece = Espece.GORILLE;
 
     // Méthodes
 
@@ -27,7 +25,7 @@ public class Gorille extends Animal implements Herbivore {
      * @param sexe Sexe
      */
     public Gorille(String nom, Sexe sexe) {
-        super(nom, sexe);
+        super(nom, sexe, Espece.GORILLE);
     }
 
     /** Méthode d'affichage des informations de l'instance

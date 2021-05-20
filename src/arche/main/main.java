@@ -30,18 +30,16 @@ public class main {
         Arche archeDeNoe = new Arche(8);
 
 
+        Animal animal_utilisateur;
+
         //// • Boucle d'ajout d'un animal par l'utilisateur • ////
 
         do {
 
-            /// • Initialisation de l'animal à ajouter à l'Arche • ///
-
-            Animal animal_utilisateur = saisie.AnimalUtilisateur();
-
-            /// • Ajout de l'animal crée à l'Arche • ///
+            /// • Tentative de création et d'ajout d'un animal à l'Arche • ///
 
             try {
-                archeDeNoe.ajouterAnimal(animal_utilisateur);
+                archeDeNoe.ajouterAnimal();
             }
 
             // Exception lorsqu'il n'y a plus de place dans l'Arche
@@ -70,6 +68,13 @@ public class main {
         //// • Affichage final • ////
 
         // Affiche les animaux actuellement à bord de l'Arche
+        archeDeNoe.afficher();
+
+        // Calcule et affiche les provisions à prévoir pour le temps de voyage souhaité
+        archeDeNoe.stockAPrevoir(10);
+
+        archeDeNoe.enleverAnimal();
+
         archeDeNoe.afficher();
 
         // Calcule et affiche les provisions à prévoir pour le temps de voyage souhaité
