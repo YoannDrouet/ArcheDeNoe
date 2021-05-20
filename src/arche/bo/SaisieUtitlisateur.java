@@ -27,9 +27,6 @@ public class SaisieUtitlisateur {
 
         int reponse_utilisateur_sexe_animal;
 
-        // Mise en forme de l'énumération Sexe sous forme de tableau
-
-
         // Affichage de la question
         System.out.printf("Quel est le sexe de l'animal ? ");
 
@@ -65,15 +62,14 @@ public class SaisieUtitlisateur {
 
             // Boucle tant que l'utilisateur n'a pas saisi une réponse valide
         } while (true);
+
+        return reponse_utilisateur_sexe_animal;
     }
 
     public int EspeceAnimal(){
         /// • Demande de l'espèce de l'animal à l'utilisateur • ///
 
         int reponse_utilisateur_espece_animal;
-
-        // Mise en forme de l'énumération Espece sous forme de tableau
-
 
         // Affichage de la question
         System.out.println("Quel est l'espèce de l'animal ?");
@@ -110,6 +106,8 @@ public class SaisieUtitlisateur {
 
             // Boucle tant que l'utilisateur n'a pas saisi une réponse valide
         } while (true);
+
+        return reponse_utilisateur_espece_animal
     }
 
     public Animal AnimalUtilisateur(){
