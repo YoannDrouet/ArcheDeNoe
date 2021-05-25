@@ -27,7 +27,7 @@ public class main {
 
 
         // Création d'une nouvelle arche
-        Arche archeDeNoe = new Arche(8);
+        Arche archeDeNoe = new Arche();
 
 
         Animal animal_utilisateur;
@@ -40,11 +40,6 @@ public class main {
 
             try {
                 archeDeNoe.ajouterAnimal();
-            }
-
-            // Exception lorsqu'il n'y a plus de place dans l'Arche
-            catch (PlusDePlaceException e) {
-                System.err.println(e.getMessage());
             }
 
             // Exception s'il y a déjà deux individus de la même espèce dans l'Arche
